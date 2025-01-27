@@ -1,13 +1,12 @@
-import 'package:device_preview/device_preview.dart';
+
 import 'package:flutter/material.dart';
 import 'package:medical_app/core/utils/theme_manager.dart';
 import 'package:medical_app/features/splash/presentation/views/splash_view.dart';
 
 void main() {
   runApp(
-    DevicePreview(
-      builder: (context) => const MyApp(),
-    ),
+      const MyApp(),
+    
   );
 }
 
@@ -18,8 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
+      
       title: 'Medical App',
       theme: ThemeManager.getAppTheme(),
       home: SplashView(),

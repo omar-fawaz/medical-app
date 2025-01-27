@@ -201,7 +201,7 @@ class _NurseSelectionScreenState extends State<NurseSelectionScreen> {
                     'Select Nurse',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 16,
+                      fontSize: 17,
                     ),
                   ),
                 ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:medical_app/features/splash/presentation/views/medical_measurement_view.dart';
+import 'package:medical_app/features/splash/presentation/views/medical_record_view.dart';
 
 class MedicalOptions extends StatefulWidget {
   const MedicalOptions({Key? key}) : super(key: key);
@@ -7,7 +9,8 @@ class MedicalOptions extends StatefulWidget {
   State<MedicalOptions> createState() => _MedicalOptionsState();
 }
 
-class _MedicalOptionsState extends State<MedicalOptions> with SingleTickerProviderStateMixin {
+class _MedicalOptionsState extends State<MedicalOptions>
+    with SingleTickerProviderStateMixin {
   int? selectedOption;
   late AnimationController _controller;
 
@@ -69,7 +72,17 @@ class _MedicalOptionsState extends State<MedicalOptions> with SingleTickerProvid
               child: ElevatedButton(
                 onPressed: () {
                   if (selectedOption != null) {
-                    debugPrint('Selected option: $selectedOption');
+                    if (selectedOption == 0) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MedicalRecordView()),
+                      );
+                    } else if (selectedOption == 1) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MedicalMeasurementView()),
+                      );
+                    }
                   }
                 },
                 style: ElevatedButton.styleFrom(
@@ -98,41 +111,24 @@ class _MedicalOptionsState extends State<MedicalOptions> with SingleTickerProvid
     required String title,
     required IconData icon,
   }) {
-    bool isSelected = selectedOption == index;
-
-    return Material(
-      color: Colors.transparent,
-      child: InkWell(
-        onTap: () => selectOption(index),
-        borderRadius: BorderRadius.circular(8),
-        child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-          decoration: BoxDecoration(
-            border: Border.all(
-              color: isSelected ? const Color(0xFF1FD4AF) : Colors.grey.shade300,
-              width: 2,
-            ),
-            borderRadius: BorderRadius.circular(8),
+    return InkWell(
+      onTap: () => selectOption(index),
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: selectedOption == index ? Colors.teal : Colors.grey,
+            width: 2,
           ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(
-                icon,
-                size: 30,
-                color: isSelected ? const Color(0xFF1FD4AF) : Colors.grey,
-              ),
-              const SizedBox(height: 8),
-              Text(
-                title,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: isSelected ? const Color(0xFF1FD4AF) : Colors.grey,
-                  fontSize: 14,
-                ),
-              ),
-            ],
-          ),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(icon),
+            const SizedBox(height: 8),
+            Text(title),
+          ],
         ),
       ),
     );

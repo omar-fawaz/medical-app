@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:medical_app/core/utils/app_styles.dart';
+import 'package:medical_app/features/splash/presentation/views/widgets/nurse_item.dart';
 
-class NurseSelectionScreen extends StatefulWidget {
-  const NurseSelectionScreen({Key? key}) : super(key: key);
+class NurseSelectionView extends StatefulWidget {
+  const NurseSelectionView({super.key});
 
   @override
-  State<NurseSelectionScreen> createState() => _NurseSelectionScreenState();
+  State<NurseSelectionView> createState() => _NurseSelectionViewState();
 }
 
-class _NurseSelectionScreenState extends State<NurseSelectionScreen> {
+class _NurseSelectionViewState extends State<NurseSelectionView> {
   int? selectedNurseIndex;
   String searchQuery = '';
 
@@ -63,19 +65,15 @@ class _NurseSelectionScreenState extends State<NurseSelectionScreen> {
         ),
         title: const Text(
           'Select Nurse',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 18,
-            fontWeight: FontWeight.w500,
-          ),
+          style: AppStyles.titleStyle,
         ),
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: AppStyles.defaultPadding,
           child: Column(
             children: [
-              // Search Bar
+              // Search TextField instead of SearchBar
               TextField(
                 onChanged: (value) {
                   setState(() {
@@ -94,7 +92,7 @@ class _NurseSelectionScreenState extends State<NurseSelectionScreen> {
                 ),
               ),
               const SizedBox(height: 20),
-              
+
               // Nurse List
               Expanded(
                 child: ListView.builder(
@@ -102,85 +100,22 @@ class _NurseSelectionScreenState extends State<NurseSelectionScreen> {
                   itemBuilder: (context, index) {
                     final nurse = filteredNurses[index];
                     bool isSelected = selectedNurseIndex == index;
-                    
-                    return GestureDetector(
+
+                    return NurseItem(
+                      name: nurse['name']!,
+                      speciality: nurse['speciality']!,
+                      status: nurse['status']!,
+                      isSelected: isSelected,
                       onTap: () {
                         setState(() {
                           selectedNurseIndex = index;
                         });
                       },
-                      child: Container(
-                        margin: const EdgeInsets.only(bottom: 12),
-                        child: Row(
-                          children: [
-                            CircleAvatar(
-                              radius: 25,
-                              backgroundColor: Colors.blue[100],
-                              child: Icon(
-                                Icons.person,
-                                color: Colors.blue[300],
-                              ),
-                            ),
-                            const SizedBox(width: 12),
-                            
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    nurse['name']!,
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16,
-                                    ),
-                                  ),
-                                  Text(
-                                    nurse['speciality']!,
-                                    style: TextStyle(
-                                      color: Colors.grey[600],
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            
-                            Container(
-                              width: 12,
-                              height: 12,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: nurse['status'] == 'online'
-                                    ? Colors.green
-                                    : nurse['status'] == 'away'
-                                        ? Colors.orange
-                                        : Colors.grey,
-                              ),
-                            ),
-                            
-                            if (isSelected)
-                              Container(
-                                margin: const EdgeInsets.only(left: 8),
-                                width: 20,
-                                height: 20,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.teal[400],
-                                ),
-                                child: const Icon(
-                                  Icons.check,
-                                  size: 14,
-                                  color: Colors.white,
-                                ),
-                              ),
-                          ],
-                        ),
-                      ),
                     );
                   },
                 ),
               ),
-              
+
               // Select Button
               SizedBox(
                 width: double.infinity,
@@ -188,11 +123,12 @@ class _NurseSelectionScreenState extends State<NurseSelectionScreen> {
                 child: ElevatedButton(
                   onPressed: selectedNurseIndex != null
                       ? () {
-                          Navigator.pop(context, filteredNurses[selectedNurseIndex!]);
+                          Navigator.pop(
+                              context, filteredNurses[selectedNurseIndex!]);
                         }
                       : null,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF1FD4AF),
+                    backgroundColor: AppStyles.primaryColor,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),

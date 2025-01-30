@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:medical_app/core/utils/app_styles.dart';
 
 class ActionButton extends StatelessWidget {
   final String label;
@@ -8,7 +7,7 @@ class ActionButton extends StatelessWidget {
   final bool showIcon;
   final VoidCallback onPressed;
 
-  const ActionButton({
+  const ActionButton({super.key,
     required this.label,
     required this.color,
     required this.textColor,

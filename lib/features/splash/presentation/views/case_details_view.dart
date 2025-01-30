@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medical_app/core/utils/app_styles.dart';
+import 'package:medical_app/features/splash/presentation/views/cases_view.dart';
 import 'package:medical_app/features/splash/presentation/views/nurse_view.dart';
 import 'package:medical_app/features/splash/presentation/views/widgets/action_button.dart';
 import 'package:medical_app/features/splash/presentation/views/widgets/detail_row.dart';
@@ -18,7 +19,14 @@ class CaseDetailsView extends StatelessWidget {
         title: const Text('Case Details', style: AppStyles.titleStyle),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CasesView(),
+                    ),
+                  );
+          },
         ),
       ),
       body: Padding(
@@ -81,7 +89,7 @@ class CaseDetailsView extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const NurseSelectionScreen()),
+                          builder: (context) => const  NurseSelectionView()),
                     );
                   },
                 ),

@@ -34,6 +34,17 @@ abstract class AppStyles {
     fontWeight: FontWeight.bold,
     color: textColor,
   );
+ static const TextStyle subtitleStyle = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.normal,
+    color: Colors.grey,
+  );
+
+  static const TextStyle buttonTextStyle = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.bold,
+    color: Colors.blue,
+  );
 
   // Padding
   static const EdgeInsets defaultPadding = EdgeInsets.all(16);

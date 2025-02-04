@@ -1,10 +1,10 @@
 // attendance_screen.dart
 import 'package:flutter/material.dart';
-import 'package:medical_app/features/splash/presentation/views/ConfirmationScreen%20.dart';
-import 'package:medical_app/features/splash/presentation/views/DashboardView.dart';
-import 'package:medical_app/features/splash/presentation/views/widgets/attendance_card.dart';
-import 'package:medical_app/features/splash/presentation/views/widgets/note_section.dart';
-import 'package:medical_app/features/splash/presentation/views/widgets/profile_section.dart';
+import 'package:medical_app/features/nurse_dashboard/presentation/views/ConfirmationScreen%20.dart';
+import 'package:medical_app/features/nurse_dashboard/presentation/views/DashboardView.dart';
+import 'package:medical_app/features/nurse_dashboard/presentation/views/widgets/attendance_card.dart';
+import 'package:medical_app/features/nurse_dashboard/presentation/views/widgets/note_section.dart';
+import 'package:medical_app/features/nurse_dashboard/presentation/views/widgets/profile_section.dart';
 
 class AttendanceScreen extends StatelessWidget {
   const AttendanceScreen({super.key});

@@ -1,12 +1,12 @@
 // dashboard_view.dart
 import 'package:flutter/material.dart';
-import 'package:medical_app/features/splash/presentation/views/AttendanceScreen%20.dart';
-import 'package:medical_app/features/splash/presentation/views/ReportsView.dart';
-import 'package:medical_app/features/splash/presentation/views/TaskScreenView.dart';
-import 'package:medical_app/features/splash/presentation/views/call_view.dart';
-import 'package:medical_app/features/splash/presentation/views/case_details_view.dart';
-import 'package:medical_app/features/splash/presentation/views/widgets/cases_card.dart';
-import 'package:medical_app/features/splash/presentation/views/widgets/grid_item.dart';
+import 'package:medical_app/features/nurse_dashboard/presentation/views/AttendanceScreen%20.dart';
+import 'package:medical_app/features/nurse_dashboard/presentation/views/ReportsView.dart';
+import 'package:medical_app/features/nurse_dashboard/presentation/views/TaskScreenView.dart';
+import 'package:medical_app/features/nurse_dashboard/presentation/views/call_view.dart';
+import 'package:medical_app/features/nurse_dashboard/presentation/views/case_details_view.dart';
+import 'package:medical_app/features/nurse_dashboard/presentation/views/widgets/cases_card.dart';
+import 'package:medical_app/features/nurse_dashboard/presentation/views/widgets/grid_item.dart';
 
 class DashboardView extends StatelessWidget {
   const DashboardView({super.key});

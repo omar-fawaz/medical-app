@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medical_app/core/utils/app_styles.dart';
-import 'package:medical_app/features/splash/presentation/views/call_view.dart';
-import 'package:medical_app/features/splash/presentation/views/widgets/detail_row.dart';
+import 'package:medical_app/features/nurse_dashboard/presentation/views/call_view.dart';
+import 'package:medical_app/features/nurse_dashboard/presentation/views/widgets/detail_row.dart';
 
 class CaseDetailsView extends StatelessWidget {
   const CaseDetailsView({super.key});

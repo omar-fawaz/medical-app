@@ -1,9 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:medical_app/core/utils/theme_manager.dart';
-import 'package:medical_app/features/splash/presentation/views/DashboardView.dart';
-import 'package:medical_app/features/splash/presentation/views/case_details_view.dart';
-import 'package:medical_app/features/splash/presentation/views/call_view.dart';
+import 'package:medical_app/features/nurse_dashboard/presentation/views/DashboardView.dart';
 
 void main() {
   runApp(

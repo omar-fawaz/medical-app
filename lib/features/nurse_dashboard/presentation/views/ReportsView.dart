@@ -1,8 +1,8 @@
 // reports_view.dart
 import 'package:flutter/material.dart';
-import 'package:medical_app/features/splash/presentation/views/widgets/add_report_button.dart';
-import 'package:medical_app/features/splash/presentation/views/widgets/date_picker_field_repots.dart';
-import 'package:medical_app/features/splash/presentation/views/widgets/report_card.dart';
+import 'package:medical_app/features/nurse_dashboard/presentation/views/widgets/add_report_button.dart';
+import 'package:medical_app/features/nurse_dashboard/presentation/views/widgets/date_picker_field_repots.dart';
+import 'package:medical_app/features/nurse_dashboard/presentation/views/widgets/report_card.dart';
 
 class ReportsView extends StatefulWidget {
   const ReportsView({super.key});

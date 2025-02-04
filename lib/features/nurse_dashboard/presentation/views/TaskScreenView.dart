@@ -1,7 +1,7 @@
 // task_screen.dart
 import 'package:flutter/material.dart';
-import 'package:medical_app/features/splash/presentation/views/widgets/date_picker_field.dart';
-import 'package:medical_app/features/splash/presentation/views/widgets/task_card.dart';
+import 'package:medical_app/features/nurse_dashboard/presentation/views/widgets/date_picker_field.dart';
+import 'package:medical_app/features/nurse_dashboard/presentation/views/widgets/task_card.dart';
 
 class TaskScreen extends StatefulWidget {
   const TaskScreen({super.key});
